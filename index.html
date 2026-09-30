@@ -6,38 +6,100 @@
 
 <title>For Anu ♡</title>
 
+<!-- =========================
+     FONTS
+========================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Allura&display=swap" rel="stylesheet">
+
+
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Parisienne&display=swap');
+/* =====================================================
+   ROOT
+===================================================== */
 
+:root {
+
+    --lavender-light: #f5efff;
+    --lavender: #dfcff5;
+    --lavender-dark: #b99bd9;
+
+    --purple: #69467c;
+    --purple-soft: #80618f;
+
+    --red: #8b1e3f;
+    --red-light: #a83255;
+    --red-soft: #f4dce4;
+
+    --white: rgba(255,255,255,.82);
+
+    --shadow:
+        0 25px 70px rgba(70,40,90,.16);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
 }
 
 
 body {
 
-    font-family: 'Inter', sans-serif;
-
-    background:
-        radial-gradient(circle at top left, #f2eaff, transparent 40%),
-        radial-gradient(circle at bottom right, #d9c2f2, transparent 40%),
-        linear-gradient(135deg, #eadcff, #d9c5f2);
+    font-family: 'DM Sans', sans-serif;
 
     color: #4b315d;
 
     min-height: 100vh;
 
     overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            #f7f0ff 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            #d7bceb 0%,
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eee2ff,
+            #d9c5f1
+        );
+
 }
 
 
-/* =========================
+/* =====================================================
    LOADING SCREEN
-========================= */
+===================================================== */
 
 #loader {
 
@@ -47,20 +109,28 @@ body {
 
     z-index: 9999;
 
-    background:
-        linear-gradient(135deg, #eadcff, #d5bbed, #f0e7ff);
-
     display: flex;
-
-    justify-content: center;
 
     align-items: center;
 
+    justify-content: center;
+
     text-align: center;
 
+    background:
+
+        radial-gradient(
+            circle at center,
+            #f8f2ff,
+            #dec8f2
+        );
+
     transition:
+
         opacity 1s ease,
+
         visibility 1s ease;
+
 }
 
 
@@ -69,26 +139,30 @@ body {
     opacity: 0;
 
     visibility: hidden;
+
 }
 
 
 .loader-content {
 
-    animation: loaderFloat 2s ease-in-out infinite;
+    animation:
+        loaderFloat 2.2s ease-in-out infinite;
+
 }
 
 
 .loader-small {
 
-    font-size: 12px;
+    font-size: 11px;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
     text-transform: uppercase;
 
-    color: #80618f;
+    color: var(--purple-soft);
 
     margin-bottom: 15px;
+
 }
 
 
@@ -96,19 +170,21 @@ body {
 
     font-family: 'Parisienne', cursive;
 
-    font-size: 58px;
+    font-size: 64px;
 
-    color: #674575;
+    color: var(--red);
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+
 }
 
 
 .loader-text {
 
+    font-size: 14px;
+
     color: #765681;
 
-    font-size: 14px;
 }
 
 
@@ -122,42 +198,56 @@ body {
 
 
 .loading-dots span:nth-child(2) {
+
     animation-delay: .2s;
+
 }
 
 
 .loading-dots span:nth-child(3) {
+
     animation-delay: .4s;
+
 }
 
 
 @keyframes loaderFloat {
 
     0%,100% {
+
         transform: translateY(0);
+
     }
 
     50% {
+
         transform: translateY(-8px);
+
     }
+
 }
 
 
 @keyframes blink {
 
     0%,80%,100% {
+
         opacity: 0;
+
     }
 
     40% {
+
         opacity: 1;
+
     }
+
 }
 
 
-/* =========================
+/* =====================================================
    PETALS
-========================= */
+===================================================== */
 
 #petal-container {
 
@@ -170,6 +260,7 @@ body {
     z-index: 100;
 
     overflow: hidden;
+
 }
 
 
@@ -183,16 +274,25 @@ body {
 
     height: 8px;
 
-    background: #cdb1e8;
-
     border-radius: 100% 0 100% 0;
 
     opacity: .65;
 
-    filter: blur(.1px);
+    animation: fall linear forwards;
 
-    animation:
-        fall linear forwards;
+}
+
+
+.petal.lavender {
+
+    background: #c5a9e3;
+
+}
+
+
+.petal.red {
+
+    background: #b85b78;
 
 }
 
@@ -212,7 +312,7 @@ body {
 
     10% {
 
-        opacity: .75;
+        opacity: .7;
 
     }
 
@@ -239,9 +339,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    PAGES
-========================= */
+===================================================== */
 
 .page {
 
@@ -253,13 +353,14 @@ body {
 
     justify-content: center;
 
-    padding: 30px 18px;
+    padding: 35px 18px;
 
     position: relative;
 
     z-index: 2;
 
     animation: pageIn .8s ease;
+
 }
 
 
@@ -276,7 +377,7 @@ body {
 
         opacity: 0;
 
-        transform: translateY(20px);
+        transform: translateY(22px);
 
     }
 
@@ -291,9 +392,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    CARD
-========================= */
+===================================================== */
 
 .card {
 
@@ -301,41 +402,42 @@ body {
 
     max-width: 680px;
 
-    background:
-        rgba(255,255,255,.76);
-
-    backdrop-filter: blur(16px);
-
-    border:
-        1px solid rgba(255,255,255,.7);
-
-    border-radius: 30px;
-
-    padding: 40px 27px;
+    padding: 43px 30px;
 
     text-align: center;
 
-    box-shadow:
-        0 25px 70px rgba(75,45,95,.15);
+    background: var(--white);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border:
+
+        1px solid rgba(255,255,255,.75);
+
+    border-radius: 30px;
+
+    box-shadow: var(--shadow);
 
 }
 
 
-/* =========================
+/* =====================================================
    TEXT
-========================= */
+===================================================== */
 
 .small {
 
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 3px;
 
     text-transform: uppercase;
 
-    color: #80618f;
+    color: var(--purple-soft);
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 
 }
 
@@ -346,7 +448,9 @@ h1 {
 
     font-size: 43px;
 
-    color: #543365;
+    line-height: 1.15;
+
+    color: var(--purple);
 
     margin-bottom: 20px;
 
@@ -357,9 +461,9 @@ h1 {
 
     font-family: 'Parisienne', cursive;
 
-    font-size: 48px;
+    font-size: 50px;
 
-    color: #79538c;
+    color: var(--red);
 
     margin: 10px 0 20px;
 
@@ -375,9 +479,36 @@ p {
 }
 
 
-/* =========================
+/* =====================================================
+   BREAKFAST DATE
+===================================================== */
+
+.breakfast-date {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 64px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--red);
+
+    margin: 13px 0 17px;
+
+    letter-spacing: .5px;
+
+    text-shadow:
+
+        0 5px 20px rgba(139,30,63,.12);
+
+}
+
+
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 button {
 
@@ -385,26 +516,33 @@ button {
 
     border-radius: 50px;
 
-    padding: 15px 27px;
+    padding: 15px 28px;
 
-    font-size: 15px;
+    margin: 12px 5px;
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 14px;
 
     font-weight: 600;
 
     cursor: pointer;
 
-    margin: 12px 5px;
-
-    background: #75518a;
-
     color: white;
 
+    background: var(--red);
+
     box-shadow:
-        0 10px 25px rgba(85,53,103,.2);
+
+        0 10px 25px rgba(139,30,63,.22);
 
     transition:
+
         transform .3s ease,
-        box-shadow .3s ease;
+
+        box-shadow .3s ease,
+
+        background .3s ease;
 
 }
 
@@ -413,43 +551,70 @@ button:hover {
 
     transform: translateY(-3px);
 
+    background: var(--red-light);
+
     box-shadow:
-        0 15px 30px rgba(85,53,103,.25);
+
+        0 15px 32px rgba(139,30,63,.28);
+
+}
+
+
+button:active {
+
+    transform: scale(.97);
 
 }
 
 
 .secondary {
 
+    color: var(--purple);
+
     background: #eadfff;
 
-    color: #674575;
+    box-shadow:
+
+        0 8px 20px rgba(90,60,110,.12);
 
 }
 
 
-/* =========================
+.secondary:hover {
+
+    background: #e2d4fa;
+
+}
+
+
+/* =====================================================
    LETTER
-========================= */
+===================================================== */
 
 .letter {
 
     text-align: left;
 
     background:
+
         linear-gradient(
             145deg,
             #fffefe,
             #fcf8ff
         );
 
-    padding: 32px 25px;
+    padding: 34px 27px;
 
     border-radius: 22px;
 
-    margin-top: 20px;
+    margin-top: 22px;
+
+    border:
+
+        1px solid rgba(139,30,63,.06);
 
     box-shadow:
+
         inset 0 0 30px rgba(130,90,150,.05);
 
 }
@@ -468,18 +633,20 @@ button:hover {
 
     font-size: 29px;
 
-    color: #69427c;
+    line-height: 1.3;
+
+    color: var(--red);
 
     text-align: center;
 
-    margin: 30px 0;
+    margin: 32px 0;
 
 }
 
 
-/* =========================
+/* =====================================================
    DATE DETAILS
-========================= */
+===================================================== */
 
 .details {
 
@@ -491,7 +658,12 @@ button:hover {
 .detail {
 
     background:
-        rgba(238,226,255,.9);
+
+        linear-gradient(
+            135deg,
+            rgba(238,226,255,.95),
+            rgba(249,240,255,.95)
+        );
 
     border-radius: 18px;
 
@@ -499,20 +671,38 @@ button:hover {
 
     margin: 11px 0;
 
-    font-size: 16px;
+    font-size: 15px;
+
+    border:
+
+        1px solid rgba(139,30,63,.05);
 
 }
 
 
+/* =====================================================
+   SECRET BOX
+===================================================== */
+
 .secret {
 
-    background: #eee2ff;
+    background:
+
+        linear-gradient(
+            135deg,
+            #f8edf2,
+            #eee2ff
+        );
 
     border-radius: 22px;
 
-    padding: 24px;
+    padding: 25px;
 
     margin-top: 25px;
+
+    border:
+
+        1px solid rgba(139,30,63,.08);
 
 }
 
@@ -523,14 +713,16 @@ button:hover {
 
     font-size: 23px;
 
-    color: #63406f;
+    line-height: 1.4;
+
+    color: var(--red);
 
 }
 
 
-/* =========================
+/* =====================================================
    FLOATING HEARTS
-========================= */
+===================================================== */
 
 .heart {
 
@@ -541,6 +733,7 @@ button:hover {
     z-index: 500;
 
     animation:
+
         heartFloat 4s linear forwards;
 
 }
@@ -577,15 +770,15 @@ button:hover {
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
-@media(max-width:500px) {
+@media(max-width:600px) {
 
     .card {
 
-        padding: 30px 18px;
+        padding: 32px 19px;
 
         border-radius: 25px;
 
@@ -601,14 +794,28 @@ button:hover {
 
     .script {
 
-        font-size: 40px;
+        font-size: 43px;
+
+    }
+
+
+    .breakfast-date {
+
+        font-size: 51px;
+
+    }
+
+
+    p {
+
+        font-size: 15px;
 
     }
 
 
     .letter {
 
-        padding: 23px 18px;
+        padding: 25px 18px;
 
     }
 
@@ -626,6 +833,51 @@ button:hover {
 
     }
 
+
+    button {
+
+        width: auto;
+
+        max-width: 90%;
+
+    }
+
+}
+
+
+@media(max-width:360px) {
+
+    .breakfast-date {
+
+        font-size: 45px;
+
+    }
+
+    h1 {
+
+        font-size: 31px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
 }
 
 </style>
@@ -636,9 +888,9 @@ button:hover {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      LOADING SCREEN
-========================= -->
+===================================================== -->
 
 <div id="loader">
 
@@ -674,9 +926,9 @@ button:hover {
 <div id="petal-container"></div>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 1
-========================= -->
+===================================================== -->
 
 <section class="page active" id="page1">
 
@@ -710,9 +962,9 @@ button:hover {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 2
-========================= -->
+===================================================== -->
 
 <section class="page" id="page2">
 
@@ -741,9 +993,9 @@ button:hover {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 3
-========================= -->
+===================================================== -->
 
 <section class="page" id="page3">
 
@@ -884,9 +1136,9 @@ button:hover {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 4
-========================= -->
+===================================================== -->
 
 <section class="page" id="page4">
 
@@ -904,8 +1156,10 @@ button:hover {
         Will you go on a
     </p>
 
-    <div class="script">
-        BREAKFAST DATE
+    <!-- NEW CLEAN BREAKFAST DATE FONT -->
+
+    <div class="breakfast-date">
+        Breakfast Date
     </div>
 
     <p>
@@ -932,9 +1186,9 @@ button:hover {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 5
-========================= -->
+===================================================== -->
 
 <section class="page" id="page5">
 
@@ -1021,9 +1275,9 @@ button:hover {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PAGE 6
-========================= -->
+===================================================== -->
 
 <section class="page" id="page6">
 
@@ -1072,9 +1326,9 @@ button:hover {
 
 <script>
 
-/* =========================
+/* =====================================================
    LOADING SCREEN
-========================= */
+===================================================== */
 
 window.addEventListener("load", function() {
 
@@ -1089,9 +1343,9 @@ window.addEventListener("load", function() {
 });
 
 
-/* =========================
+/* =====================================================
    PAGE CHANGE
-========================= */
+===================================================== */
 
 function nextPage(number) {
 
@@ -1123,9 +1377,9 @@ function nextPage(number) {
 }
 
 
-/* =========================
+/* =====================================================
    RUNNING BUTTON
-========================= */
+===================================================== */
 
 function moveButton() {
 
@@ -1155,9 +1409,9 @@ function moveButton() {
 }
 
 
-/* =========================
+/* =====================================================
    FALLING PETALS
-========================= */
+===================================================== */
 
 function createPetal() {
 
@@ -1166,7 +1420,10 @@ function createPetal() {
 
 
     petal.className =
-        "petal";
+
+        Math.random() > .75
+        ? "petal red"
+        : "petal lavender";
 
 
     petal.style.left =
@@ -1186,97 +1443,4 @@ function createPetal() {
 
 
     petal.style.animationDuration =
-        5 + Math.random() * 7 + "s";
-
-
-    petal.style.animationDelay =
-        Math.random() * 2 + "s";
-
-
-    document
-    .getElementById("petal-container")
-    .appendChild(petal);
-
-
-    setTimeout(() => {
-
-        petal.remove();
-
-    }, 14000);
-
-}
-
-
-/* Create petals continuously */
-
-setInterval(createPetal, 450);
-
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-function createHearts() {
-
-    for(let i = 0; i < 10; i++) {
-
-        const heart =
-            document.createElement("div");
-
-
-        heart.className =
-            "heart";
-
-
-        heart.innerHTML =
-            Math.random() > .5
-            ? "♡"
-            : "♥";
-
-
-        heart.style.left =
-            Math.random() * 100 + "vw";
-
-
-        heart.style.fontSize =
-            14 + Math.random() * 18 + "px";
-
-
-        heart.style.color =
-            "#9b72b3";
-
-
-        heart.style.animationDuration =
-            3 + Math.random() * 3 + "s";
-
-
-        document.body
-        .appendChild(heart);
-
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 6000);
-
-    }
-
-}
-
-
-/* Initial petals */
-
-for(let i = 0; i < 15; i++) {
-
-    setTimeout(
-        createPetal,
-        i * 250
-    );
-
-}
-
-</script>
-
-</body>
-</html>
+        5 + Math.random() 
